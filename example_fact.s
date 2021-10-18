@@ -68,19 +68,19 @@ my_fact:
 	call	my_fact
     /* return register eax -> fib(n-1) */
     /* save fib(n-1) onto stack */
-    movl    %eax, -8(%rbp)    
+    	movl    %eax, -8(%rbp)    
 
     /* fib(n-2) */
-    movl    %eax, %esi
+    	movl    %eax, %esi
 	movl	-4(%rbp), %eax
 	subl	$2, %eax
 	movl	%eax, %edi
-    call    my_fact
+  	call    my_fact
     
     /* fib(n-1) + fib(n-2)
        -8(%rbp) -> fib(n-1)
        eax -> fib(n-2) */
-	addl    -8(%rbp), %eax
+       addl    -8(%rbp), %eax
 /* End of the recursive call */
 /* Start of take down stack frame, return */
 .L5:
